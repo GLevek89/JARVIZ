@@ -1,0 +1,170 @@
+Initialize a repo
+git init
+
+Check repo status
+git status
+
+See configured remotes
+git remote -v
+
+2. Files & commits
+Stage everything
+git add .
+
+Stage a specific file
+git add path/to/file.py
+
+Unstage a file
+git restore --staged path/to/file.py
+
+Commit staged files
+git commit -m "Your message"
+
+Amend last commit (no new commit)
+git commit --amend
+
+3. Branching (daily use)
+Create and switch to a branch
+git checkout -b dev
+
+Switch branches
+git checkout main
+
+List branches
+git branch
+
+Delete a local branch
+git branch -d dev
+
+Push a new branch to GitHub
+git push -u origin dev
+
+4. Pulling & pushing
+Push current branch
+git push
+
+Pull latest changes
+git pull
+
+Pull from a specific branch
+git pull origin main
+
+5. Merging & syncing
+Merge another branch into current
+git merge dev
+
+Update dev with latest main
+git checkout dev
+git merge main
+
+Abort a bad merge
+git merge --abort
+
+6. Undo & recovery (VERY important)
+Undo last commit (keep changes)
+git reset --soft HEAD~1
+
+Undo last commit (discard changes)
+git reset --hard HEAD~1
+
+Discard all local changes
+git reset --hard
+
+Restore a single file
+git restore path/to/file.py
+
+7. Logs & inspection
+Compact commit log
+git log --oneline
+
+Visual branch graph
+git log --oneline --graph --decorate --all
+
+Show changes in a commit
+git show <commit-hash>
+
+8. Working with remote branches
+Fetch all branches (no merge)
+git fetch
+
+See remote branches
+git branch -r
+
+Track a remote branch locally
+git checkout -b dev origin/dev
+
+9. Stashing (temporary save)
+Stash current work
+git stash
+
+List stashes
+git stash list
+
+Apply last stash
+git stash apply
+
+Drop last stash
+git stash drop
+
+10. Tags & releases
+Create a version tag
+git tag v1.0.0
+
+Push tags
+git push origin --tags
+
+11. Common task combos (copy/paste friendly)
+Start new feature safely
+git checkout dev
+git pull
+git checkout -b feature-name
+
+Save work fast
+git add .
+git commit -m "WIP"
+git push
+
+Merge dev into main (clean flow)
+git checkout main
+git pull
+git merge dev
+git push
+
+Emergency rollback
+git log --oneline
+git reset --hard <good-commit-hash>
+git push --force
+
+
+⚠️ Only do this if you know what you’re doing.
+
+12. GitHub-specific (best practice)
+Set upstream on first push
+git push -u origin dev
+
+Rename branch (local + remote)
+git branch -m old-name new-name
+git push origin :old-name new-name
+git push -u origin new-name
+
+13. Golden rules (remember these)
+
+Commit often
+
+Never force-push main unless necessary
+
+Use branches for everything
+
+Read git status before panic
+
+If you want, I can:
+
+Make this into a one-page printable cheat sheet
+
+Tailor it to solo dev vs team workflow
+
+Add PowerShell aliases for faster typing
+
+Lock this into a safe medical/regulated workflow (no accidental data loss)
+
+Just tell me how you want to use Git day-to-day.

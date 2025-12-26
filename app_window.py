@@ -1,3 +1,4 @@
+
 from __future__ import annotations
 
 from typing import Dict
@@ -21,6 +22,7 @@ from .ui.pages.faq_page import FaqPage
 from .ui.pages.capture_page import CapturePage
 from .ui.pages.ocr_preview_page import OCRPreviewPage
 from .ui.pages.coding_helper_page import CodingHelperPage
+from .ui.pages.overlay_page import OverlayPage
 
 class JarvizMainWindow(QMainWindow):
     def __init__(self):
@@ -118,6 +120,9 @@ class JarvizMainWindow(QMainWindow):
         github = GithubZipPage()
         self._add_page(github)
 
+        overlay = OverlayPage()
+        self._add_page(overlay)
+
         settings = SettingsPage(on_theme_changed=self._apply_theme)
         self._add_page(settings)
 
@@ -179,7 +184,6 @@ class JarvizMainWindow(QMainWindow):
     def _apply_theme(self):
         s = load_settings()
         themed = qss(THEME).replace(THEME.accent, s.accent)
-        # Apply to the whole app so dialogs and popups match too.
         app = QApplication.instance()
         if app is not None:
             app.setStyleSheet(themed)
